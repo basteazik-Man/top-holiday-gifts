@@ -1,48 +1,29 @@
+/* ========== CSS-ПЕРЕМЕННЫЕ ========== */
+:root {
+--font-main: 'Playfair Display', serif;
+--font-ui: 'Inter', sans-serif;
+--color-bg: #ffffff;
+--color-text: #111;
+--color-accent: #bfa37a;
+--color-muted: #666;
+}
+
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f7f7f7;
+background: var(--color-bg);
+color: var(--color-text);
+font-family: var(--font-ui);
+line-height: 1.6;
 }
 
-header {
-    background: #ff4b4b;
-    padding: 20px;
-    color: #fff;
-}
 
-h1 {
-    margin: 0;
-    text-align: center;
-}
-
-.menu {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    padding: 0;
-    margin-top: 15px;
-}
-
-.menu li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.category {
-    background: white;
-    margin: 20px auto;
-    width: 90%;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #222;
-    color: #fff;
-    margin-top: 40px;
-}
+/* Header */
+.header {
+border-bottom: 1px solid #eee;
+background: white;
+position: sticky;
+top: 0;
+z-index: 10;
