@@ -8,7 +8,6 @@
     <style>
         /* === SAMSUNG-INSPIRED DESIGN SYSTEM === */
         :root {
-            /* Цветовая палитра Samsung */
             --samsung-blue: #1428A0;
             --samsung-blue-light: #1E40E6;
             --samsung-blue-dark: #0D1A6E;
@@ -26,36 +25,30 @@
             --gray-800: #1E293B;
             --gray-900: #0F172A;
             
-            /* Новогодние акценты */
             --gold: #FFD700;
             --gold-light: #FFF9C4;
             --silver: #E8E8E8;
             
-            /* Тени */
             --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             
-            /* Анимации */
             --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             
-            /* Радиусы */
             --radius-sm: 4px;
             --radius: 8px;
             --radius-md: 12px;
             --radius-lg: 16px;
             --radius-xl: 24px;
             
-            /* Типографика */
             --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-display: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
-        /* === BASE STYLES === */
         * {
             margin: 0;
             padding: 0;
@@ -653,6 +646,32 @@
             border-color: var(--gray-400);
         }
 
+        /* === PARTNER LINK STYLES === */
+        .partner-link {
+            background: linear-gradient(135deg, #FF6B35, #FF8E53);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 14px;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .partner-link:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            color: white;
+        }
+
+        .partner-link::after {
+            content: '↗';
+            font-size: 16px;
+        }
+
         /* === PREMIUM FEATURES SECTION === */
         .features-section {
             padding: 100px 0;
@@ -864,23 +883,6 @@
                 grid-template-columns: 1fr;
             }
         }
-
-        /* === UTILITY CLASSES === */
-        .text-center {
-            text-align: center;
-        }
-
-        .mb-4 {
-            margin-bottom: 24px;
-        }
-
-        .mb-8 {
-            margin-bottom: 32px;
-        }
-
-        .opacity-60 {
-            opacity: 0.6;
-        }
     </style>
 </head>
 <body>
@@ -900,9 +902,9 @@
                     <a href="#contacts" class="nav-link">Контакты</a>
                 </nav>
                 <div class="header-actions">
-                    <button class="icon-btn">
+                    <button class="icon-btn" onclick="showNotification('Это демонстрация уведомления')">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/>
+                            <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/>
                         </svg>
                     </button>
                 </div>
@@ -920,7 +922,7 @@
                             <span class="title-main">Искусство</span>
                             <span class="title-accent">новогоднего дара</span>
                         </h1>
-                        <p class="hero-subtitle">Технологичные решения премиум-класса для самых важных моментов. Сочетание инноваций и элегантности в каждом подарке.</p>
+                        <p class="hero-subtitle">Тщательно отобранные премиальные подарки с технологиями будущего. Мы нашли лучшие предложения для вас.</p>
                         
                         <div class="festive-badge">
                             <span class="badge-icon">✨</span>
@@ -1042,32 +1044,32 @@
             <div class="container">
                 <div class="section-header">
                     <h2>Почему выбирают нас</h2>
-                    <p>Премиальный сервис и внимание к деталям на каждом этапе</p>
+                    <p>Мы делаем процесс выбора подарков простым и приятным</p>
                 </div>
                 
                 <div class="features-grid">
                     <div class="feature-card">
-                        <div class="feature-icon">🚀</div>
-                        <h4>Экспресс-доставка</h4>
-                        <p>Быстрая доставка по всей Европе за 1-2 рабочих дня с отслеживанием в реальном времени</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">🎀</div>
-                        <h4>Подарочная упаковка</h4>
-                        <p>Дизайнерская упаковка премиум-класса с возможностью персонализации для особых случаев</p>
+                        <div class="feature-icon">🎯</div>
+                        <h4>Точный подбор</h4>
+                        <p>Умная система рекомендаций на основе повода, получателя и бюджета</p>
                     </div>
                     
                     <div class="feature-card">
                         <div class="feature-icon">💎</div>
-                        <h4>Гарантия качества</h4>
-                        <p>Все продукты проходят тщательный отбор и проверку качества перед отправкой</p>
+                        <h4>Премиум-качество</h4>
+                        <p>Только проверенные бренды и качественные товары в каждой категории</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h4>Экономия времени</h4>
+                        <p>Больше не нужно часами искать идеальный подарок - мы сделали это за вас</p>
                     </div>
                     
                     <div class="feature-card">
                         <div class="feature-icon">🛡️</div>
-                        <h4>Безопасная оплата</h4>
-                        <p>Различные способы оплаты с максимальной защитой ваших финансовых данных</p>
+                        <h4>Проверенные магазины</h4>
+                        <p>Все ссылки ведут в надежные магазины с хорошей репутацией</p>
                     </div>
                 </div>
             </div>
@@ -1079,7 +1081,7 @@
                 <div class="footer-content">
                     <div class="footer-brand">
                         <a href="#" class="logo">GiftLuxe</a>
-                        <p>Премиальные технологичные подарки для особых моментов. Сочетание инноваций, дизайна и функциональности.</p>
+                        <p>Сервис подбора премиальных подарков. Мы помогаем найти идеальное решение для любого повода.</p>
                     </div>
                     
                     <div class="footer-links">
@@ -1093,10 +1095,10 @@
                         </div>
                         
                         <div class="link-group">
-                            <h5>Помощь</h5>
-                            <a href="#">Доставка и оплата</a>
-                            <a href="#">Возврат и обмен</a>
-                            <a href="#">Гарантия</a>
+                            <h5>О нас</h5>
+                            <a href="#">Как это работает</a>
+                            <a href="#">Наша миссия</a>
+                            <a href="#">Партнёрская программа</a>
                             <a href="#">Контакты</a>
                             <a href="#">FAQ</a>
                         </div>
@@ -1104,7 +1106,7 @@
                 </div>
                 
                 <div class="footer-bottom">
-                    <p>© 2024 GiftLuxe. Все права защищены. | Премиальные технологичные подарки</p>
+                    <p>© 2024 GiftLuxe. Все права защищены. | Сервис подбора подарков</p>
                 </div>
             </div>
         </footer>
@@ -1120,7 +1122,8 @@
                 "price": 399,
                 "category": "tech",
                 "occasion": ["newyear", "birthday", "corporate"],
-                "recipient": ["him", "her", "colleague"]
+                "recipient": ["him", "her", "colleague"],
+                "partnerLink": "https://example.com/coffee-machine"
             },
             {
                 "id": 2,
@@ -1129,7 +1132,8 @@
                 "price": 299,
                 "category": "tech",
                 "occasion": ["newyear", "birthday"],
-                "recipient": ["him", "her", "family"]
+                "recipient": ["him", "her", "family"],
+                "partnerLink": "https://example.com/sound-system"
             },
             {
                 "id": 3,
@@ -1138,7 +1142,8 @@
                 "price": 599,
                 "category": "tech",
                 "occasion": ["newyear", "birthday"],
-                "recipient": ["him", "her", "family"]
+                "recipient": ["him", "her", "family"],
+                "partnerLink": "https://example.com/smart-home"
             },
             {
                 "id": 4,
@@ -1147,7 +1152,8 @@
                 "price": 199,
                 "category": "tech",
                 "occasion": ["newyear", "birthday"],
-                "recipient": ["him", "her"]
+                "recipient": ["him", "her"],
+                "partnerLink": "https://example.com/ebook"
             },
             {
                 "id": 5,
@@ -1156,7 +1162,8 @@
                 "price": 249,
                 "category": "newyear-set",
                 "occasion": ["newyear", "corporate"],
-                "recipient": ["family", "couple", "colleague"]
+                "recipient": ["family", "couple", "colleague"],
+                "partnerLink": "https://example.com/gourmet-set"
             },
             {
                 "id": 6,
@@ -1165,7 +1172,8 @@
                 "price": 350,
                 "category": "experience",
                 "occasion": ["newyear", "birthday", "romantic"],
-                "recipient": ["her", "couple"]
+                "recipient": ["her", "couple"],
+                "partnerLink": "https://example.com/spa-certificate"
             },
             {
                 "id": 7,
@@ -1174,7 +1182,8 @@
                 "price": 159,
                 "category": "lifestyle",
                 "occasion": ["newyear", "birthday", "corporate"],
-                "recipient": ["him", "her", "colleague"]
+                "recipient": ["him", "her", "colleague"],
+                "partnerLink": "https://example.com/tea-collection"
             },
             {
                 "id": 8,
@@ -1183,7 +1192,8 @@
                 "price": 449,
                 "category": "tech",
                 "occasion": ["newyear", "birthday"],
-                "recipient": ["him", "her"]
+                "recipient": ["him", "her"],
+                "partnerLink": "https://example.com/smart-watch"
             },
             {
                 "id": 9,
@@ -1192,7 +1202,8 @@
                 "price": 189,
                 "category": "home",
                 "occasion": ["newyear", "romantic"],
-                "recipient": ["her", "couple", "family"]
+                "recipient": ["her", "couple", "family"],
+                "partnerLink": "https://example.com/aroma-system"
             },
             {
                 "id": 10,
@@ -1201,7 +1212,8 @@
                 "price": 129,
                 "category": "tech",
                 "occasion": ["newyear", "corporate"],
-                "recipient": ["him", "her", "colleague"]
+                "recipient": ["him", "her", "colleague"],
+                "partnerLink": "https://example.com/charging-station"
             },
             {
                 "id": 11,
@@ -1210,7 +1222,8 @@
                 "price": 279,
                 "category": "lifestyle",
                 "occasion": ["newyear", "birthday"],
-                "recipient": ["him", "her", "couple"]
+                "recipient": ["him", "her", "couple"],
+                "partnerLink": "https://example.com/mixology-set"
             },
             {
                 "id": 12,
@@ -1219,7 +1232,8 @@
                 "price": 149,
                 "category": "tech",
                 "occasion": ["newyear", "corporate"],
-                "recipient": ["him", "her", "colleague"]
+                "recipient": ["him", "her", "colleague"],
+                "partnerLink": "https://example.com/smart-thermos"
             }
         ];
 
@@ -1246,6 +1260,54 @@
             }
         }
 
+        // Показать уведомление
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 24px;
+                background: linear-gradient(135deg, var(--samsung-blue) 0%, var(--samsung-cyan) 100%);
+                color: white;
+                padding: 20px 24px;
+                border-radius: 16px;
+                box-shadow: var(--shadow-xl);
+                z-index: 1000;
+                animation: slideInRight 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                max-width: 320px;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            `;
+            notification.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 24px;">🔔</span>
+                    <div>
+                        <div style="font-weight: 600; margin-bottom: 4px;">Уведомление</div>
+                        <div style="font-size: 14px; opacity: 0.9;">${message}</div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+                setTimeout(() => notification.remove(), 400);
+            }, 3000);
+        }
+
+        // Переход по партнерской ссылке
+        function goToPartnerLink(productId) {
+            const product = PRODUCTS.find(p => p.id === productId);
+            if (product && product.partnerLink) {
+                // Показываем уведомление о переходе
+                showNotification(`Переходим к партнёру: ${product.title}`);
+                
+                // Открываем ссылку в новом окне
+                setTimeout(() => {
+                    window.open(product.partnerLink, '_blank');
+                }, 500);
+            }
+        }
+
         // Создание премиальной карточки товара
         function createProductCard(product) {
             const card = document.createElement('div');
@@ -1261,7 +1323,7 @@
                         <div class="product-price">${formatPrice(product.price)}</div>
                         <div class="product-actions">
                             <button class="btn-sm secondary" onclick="showProductDetails(${product.id})">Подробнее</button>
-                            <button class="btn-sm primary" onclick="addToCart(${product.id})">В корзину</button>
+                            <a href="${product.partnerLink}" target="_blank" class="partner-link">Купить у партнёра</a>
                         </div>
                     </div>
                 </div>
@@ -1296,67 +1358,19 @@
                         <p style="color: var(--gray-600); margin-bottom: 24px; line-height: 1.6;">${product.desc}</p>
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <div style="font-size: 28px; font-weight: 700; color: var(--samsung-blue);">${formatPrice(product.price)}</div>
-                            <button onclick="addToCart(${product.id}); this.parentElement.parentElement.parentElement.remove();" style="background: var(--samsung-blue); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.3s;">Добавить в корзину</button>
+                            <a href="${product.partnerLink}" target="_blank" class="partner-link">Купить у партнёра</a>
                         </div>
                     </div>
                 `;
                 
                 document.body.appendChild(modal);
-            }
-        }
-
-        // Добавить в корзину
-        function addToCart(productId) {
-            const product = PRODUCTS.find(p => p.id === productId);
-            if (product) {
-                // Создаем премиальное уведомление
-                const notification = document.createElement('div');
-                notification.style.cssText = `
-                    position: fixed;
-                    top: 100px;
-                    right: 24px;
-                    background: linear-gradient(135deg, var(--samsung-blue) 0%, var(--samsung-cyan) 100%);
-                    color: white;
-                    padding: 20px 24px;
-                    border-radius: 16px;
-                    box-shadow: var(--shadow-xl);
-                    z-index: 1000;
-                    animation: slideInRight 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                    max-width: 320px;
-                    border: 1px solid rgba(255, 255, 255, 0.2);
-                `;
-                notification.innerHTML = `
-                    <div style="display: flex; align-items: center; gap: 12px;">
-                        <span style="font-size: 24px;">🎉</span>
-                        <div>
-                            <div style="font-weight: 600; margin-bottom: 4px;">Добавлено в корзину</div>
-                            <div style="font-size: 14px; opacity: 0.9;">${product.title}</div>
-                        </div>
-                    </div>
-                `;
-                document.body.appendChild(notification);
                 
-                setTimeout(() => {
-                    notification.style.animation = 'slideOutRight 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-                    setTimeout(() => notification.remove(), 400);
-                }, 3000);
-                
-                // Добавляем CSS для анимаций
-                if (!document.querySelector('#notification-styles')) {
-                    const style = document.createElement('style');
-                    style.id = 'notification-styles';
-                    style.textContent = `
-                        @keyframes slideInRight {
-                            from { transform: translateX(100%); opacity: 0; }
-                            to { transform: translateX(0); opacity: 1; }
-                        }
-                        @keyframes slideOutRight {
-                            from { transform: translateX(0); opacity: 1; }
-                            to { transform: translateX(100%); opacity: 0; }
-                        }
-                    `;
-                    document.head.appendChild(style);
-                }
+                // Закрытие модального окна при клике на фон
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        modal.remove();
+                    }
+                });
             }
         }
 
@@ -1457,6 +1471,23 @@
                     header.classList.remove('scrolled');
                 }
             });
+            
+            // Добавляем CSS для анимаций уведомлений
+            if (!document.querySelector('#notification-styles')) {
+                const style = document.createElement('style');
+                style.id = 'notification-styles';
+                style.textContent = `
+                    @keyframes slideInRight {
+                        from { transform: translateX(100%); opacity: 0; }
+                        to { transform: translateX(0); opacity: 1; }
+                    }
+                    @keyframes slideOutRight {
+                        from { transform: translateX(0); opacity: 1; }
+                        to { transform: translateX(100%); opacity: 0; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
             
             // Добавляем премиальное приветствие
             setTimeout(() => {
