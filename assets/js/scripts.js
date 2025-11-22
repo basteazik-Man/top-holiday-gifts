@@ -16,18 +16,32 @@ const PRODUCTS = [
 
 function formatPrice(p){ return p>=100? '€'+p : '€'+p; }
 
+// Генерация абстрактных геометрических форм для плейсхолдеров
+function generatePlaceholderSVG(title) {
+  const shapes = [
+    `<rect x="20" y="20" width="160" height="80" fill="none" stroke="rgba(212,175,55,0.3)" stroke-width="1"/>`,
+    `<circle cx="100" cy="60" r="40" fill="none" stroke="rgba(212,175,55,0.3)" stroke-width="1"/>`,
+    `<polygon points="100,20 180,80 20,80" fill="none" stroke="rgba(212,175,55,0.3)" stroke-width="1"/>`,
+    `<rect x="40" y="30" width="120" height="60" fill="none" stroke="rgba(212,175,55,0.3)" stroke-width="1" transform="rotate(45 100 60)"/>`
+  ];
+  
+  const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+  
+  return `
+    <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg" role="img">
+      <rect width="200" height="120" fill="rgba(10,10,10,0.5)"/>
+      ${randomShape}
+      <text x="100" y="65" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="14" fill="rgba(212,175,55,0.7)">${title.split(' ')[0]}</text>
+    </svg>
+  `;
+}
+
 function createCard(p){
   const el = document.createElement('article');
-  el.className = 'product';
+  el.className = 'product fade-in';
   el.innerHTML = `
     <div class="img" aria-hidden="true">
-      <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg" role="img">
-        <rect width="200" height="120" fill="none"/>
-        <g transform="translate(10,10)">
-          <rect x="0" y="0" width="180" height="100" rx="8" fill="none" stroke="rgba(191,160,106,0.12)" stroke-width="2"/>
-          <text x="12" y="42" font-family="Playfair Display, serif" font-size="18" fill="#6b6b6b">${p.title.split(' ').slice(0,3).join(' ')}</text>
-        </g>
-      </svg>
+      ${generatePlaceholderSVG(p.title)}
     </div>
     <h3>${p.title}</h3>
     <p>${p.desc}</p>
@@ -45,8 +59,17 @@ function createCard(p){
 function renderGrid(list, containerId){
   const container = document.getElementById(containerId);
   container.innerHTML = '';
-  if(!list.length){ container.innerHTML = '<p class="muted">Ничего не найдено по заданным фильтрам.</p>'; return; }
+  if(!list.length){ 
+    container.innerHTML = '<p class="muted" style="text-align:center;grid-column:1/-1;padding:40px;">Ничего не найдено по заданным фильтрам.</p>'; 
+    return; 
+  }
   list.forEach(p => container.appendChild(createCard(p)));
+  // Активируем анимации появления
+  setTimeout(() => {
+    document.querySelectorAll('.fade-in').forEach(el => {
+      el.classList.add('visible');
+    });
+  }, 100);
 }
 
 function applyFilters(){
@@ -85,7 +108,24 @@ function showDetails(id){
   alert(p.title + "\n\n" + p.desc + "\nЦена: " + formatPrice(p.price));
 }
 
+// Анимация появления элементов при скролле
+function checkVisibility() {
+  const elements = document.querySelectorAll('.fade-in');
+  elements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      el.classList.add('visible');
+    }
+  });
+}
+
 document.getElementById('apply').addEventListener('click', applyFilters);
 document.getElementById('reset').addEventListener('click', resetFilters);
 
-window.addEventListener('load', ()=>{ resetFilters(); });
+window.addEventListener('load', ()=>{ 
+  resetFilters(); 
+  // Запускаем проверку видимости после загрузки
+  setTimeout(checkVisibility, 500);
+});
+
+window.addEventListener('scroll', checkVisibility);

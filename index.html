@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>GiftLuxe — Подбор подарков</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <title>GiftLuxe — Подбор премиальных подарков</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
@@ -28,64 +28,70 @@
     <section id="picker" class="hero">
       <div class="container hero-grid">
         <div class="hero-left">
-          <h1>Идеальный подарок — без компромиссов</h1>
-          <p class="lead">Мы храним стиль, эстетику и премиальное ощущение в каждом подборе. Выберите повод, получателя и бюджет — мы подскажем лучшие варианты.</p>
+          <div class="hero-content">
+            <h1>Искусство <span class="accent-word">дарить</span></h1>
+            <p class="lead">Тщательно отобранные премиальные подарки для самых важных моментов жизни. Утонченность в каждой детали.</p>
 
-          <form id="filterForm" class="filters" aria-label="Фильтр подарков">
-            <div class="row">
-              <label>Повод
-                <select id="occasion">
-                  <option value="any">Любой</option>
-                  <option value="birthday">День рождения</option>
-                  <option value="anniversary">Юбилей</option>
-                  <option value="wedding">Свадьба</option>
-                  <option value="corporate">Корпоратив</option>
-                  <option value="romantic">Романтика</option>
-                </select>
-              </label>
+            <form id="filterForm" class="filters" aria-label="Фильтр подарков">
+              <div class="row">
+                <div class="filter-group">
+                  <label for="occasion">Повод</label>
+                  <select id="occasion">
+                    <option value="any">Любой</option>
+                    <option value="birthday">День рождения</option>
+                    <option value="anniversary">Юбилей</option>
+                    <option value="wedding">Свадьба</option>
+                    <option value="corporate">Корпоратив</option>
+                    <option value="romantic">Романтика</option>
+                  </select>
+                </div>
 
-              <label>Получатель
-                <select id="recipient">
-                  <option value="any">Любой</option>
-                  <option value="him">Мужчине</option>
-                  <option value="her">Женщине</option>
-                  <option value="kid">Ребёнку</option>
-                  <option value="colleague">Коллеге</option>
-                  <option value="couple">Паре</option>
-                </select>
-              </label>
-            </div>
+                <div class="filter-group">
+                  <label for="recipient">Получатель</label>
+                  <select id="recipient">
+                    <option value="any">Любой</option>
+                    <option value="him">Мужчине</option>
+                    <option value="her">Женщине</option>
+                    <option value="kid">Ребёнку</option>
+                    <option value="colleague">Коллеге</option>
+                    <option value="couple">Паре</option>
+                  </select>
+                </div>
+              </div>
 
-            <div class="row">
-              <label>Цена
-                <select id="priceRange">
-                  <option value="any">Любая</option>
-                  <option value="0-30">до €30</option>
-                  <option value="30-100">€30–€100</option>
-                  <option value="100-300">€100–€300</option>
-                  <option value="300+">€300+</option>
-                </select>
-              </label>
+              <div class="row">
+                <div class="filter-group">
+                  <label for="priceRange">Цена</label>
+                  <select id="priceRange">
+                    <option value="any">Любая</option>
+                    <option value="0-30">до €30</option>
+                    <option value="30-100">€30–€100</option>
+                    <option value="100-300">€100–€300</option>
+                    <option value="300+">€300+</option>
+                  </select>
+                </div>
 
-              <label>Категория
-                <select id="category">
-                  <option value="any">Все категории</option>
-                  <option value="for-men">Подарки для мужчин</option>
-                  <option value="for-women">Подарки для женщин</option>
-                  <option value="for-kids">Подарки для детей</option>
-                  <option value="gadgets">Гаджеты</option>
-                  <option value="home">Для дома</option>
-                  <option value="hobby">Хобби</option>
-                  <option value="premium">Премиальные</option>
-                </select>
-              </label>
-            </div>
+                <div class="filter-group">
+                  <label for="category">Категория</label>
+                  <select id="category">
+                    <option value="any">Все категории</option>
+                    <option value="for-men">Подарки для мужчин</option>
+                    <option value="for-women">Подарки для женщин</option>
+                    <option value="for-kids">Подарки для детей</option>
+                    <option value="gadgets">Гаджеты</option>
+                    <option value="home">Для дома</option>
+                    <option value="hobby">Хобби</option>
+                    <option value="premium">Премиальные</option>
+                  </select>
+                </div>
+              </div>
 
-            <div class="actions">
-              <button type="button" id="apply">Подобрать</button>
-              <button type="button" id="reset" class="ghost">Сбросить</button>
-            </div>
-          </form>
+              <div class="actions">
+                <button type="button" id="apply">Подобрать</button>
+                <button type="button" id="reset" class="ghost">Сбросить</button>
+              </div>
+            </form>
+          </div>
         </div>
 
         <div class="hero-right">
@@ -98,8 +104,10 @@
 
     <!-- Catalog -->
     <section id="catalog" class="section container">
-      <h2>Каталог всех подарков</h2>
-      <p class="muted">Сохранена исходная структура категорий. Выберите категорию в навигации или используйте фильтр выше.</p>
+      <div class="section-header">
+        <h2>Коллекция подарков</h2>
+        <p class="section-subtitle">Изысканные решения для каждого особого момента</p>
+      </div>
 
       <div id="catalogGrid" class="grid-cards">
         <!-- Cards injected by JS -->
@@ -108,28 +116,35 @@
 
     <!-- Ideas / Ready sets -->
     <section id="ideas" class="section container">
-      <h2>Готовые решения и идеи</h2>
+      <div class="section-header">
+        <h2>Готовые решения</h2>
+        <p class="section-subtitle">Тщательно скомпонованные наборы для особых случаев</p>
+      </div>
       <div class="ideas-grid">
         <article class="idea">
+          <div class="idea-icon"></div>
           <h3>Подарочный набор для кофемана</h3>
           <p>Элегантный набор: качественный кофе, стильные чашки и аксессуары.</p>
         </article>
         <article class="idea">
+          <div class="idea-icon"></div>
           <h3>Электронный гаджет для офиса</h3>
           <p>Умные девайсы для продуктивности и стиля рабочего места.</p>
         </article>
         <article class="idea">
+          <div class="idea-icon"></div>
           <h3>Подарок для коллеги</h3>
           <p>Сдержанные, но премиальные варианты, подходящие для коллег.</p>
         </article>
         <article class="idea">
+          <div class="idea-icon"></div>
           <h3>Романтический набор для пары</h3>
           <p>Тонкая упаковка, свечи и авторские подарки для двоих.</p>
         </article>
       </div>
     </section>
 
-    <!-- Original categories preserved sections (from uploaded index.html) -->
+    <!-- Original categories preserved sections -->
     <section id="for-men" class="section container category-section">
       <h2>Подарки для мужчин</h2>
       <p>Скоро здесь появится подборка.</p>
@@ -167,20 +182,30 @@
 
     <!-- About -->
     <section id="about" class="section container">
-      <h2>О сервисе</h2>
-      <p>GiftLuxe — это подбор подарков с премиальным визуалом и продуманной логикой рекомендаций. Мы сохраняем структуру и категории исходного сайта, добавляя визуальную премиальность и удобство.</p>
+      <div class="section-header">
+        <h2>О сервисе</h2>
+        <p class="section-subtitle">Философия изысканного дарения</p>
+      </div>
+      <div class="about-content">
+        <p>GiftLuxe — это подбор подарков с премиальным визуалом и продуманной логикой рекомендаций. Мы сохраняем структуру и категории исходного сайта, добавляя визуальную премиальность и удобство.</p>
+      </div>
     </section>
 
     <!-- Contacts -->
     <section id="contacts" class="section container">
-      <h2>Контакты</h2>
-      <p>support@giftluxe.example | +49 30 1234 5678</p>
+      <div class="section-header">
+        <h2>Контакты</h2>
+        <p class="section-subtitle">Свяжитесь с нами для персонализированного подбора</p>
+      </div>
+      <div class="contacts-content">
+        <p>support@giftluxe.example | +49 30 1234 5678</p>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>© 2025 GiftLuxe — каталог подарков</p>
+      <p>© 2025 GiftLuxe — каталог премиальных подарков</p>
     </div>
   </footer>
 
