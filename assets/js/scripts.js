@@ -1,131 +1,321 @@
-// Minimal JS: products dataset, render and filtering
+// scripts.js
+// Новогодние продукты
 const PRODUCTS = [
-  {"id":1,"title":"Подарочный набор для кофемана","desc":"Ароматный кофе, ручная мельница и чашки.","price":85,"category":"home","occasion":["birthday","anniversary"],"recipient":["him","her","any"]},
-  {"id":2,"title":"Романтический набор для пары","desc":"Свечи, шоколад и дизайнерская карточка.","price":120,"category":"premium","occasion":["romantic"],"recipient":["couple"]},
-  {"id":3,"title":"Электронный гаджет для офиса","desc":"Беспроводная зарядка и умный блокнот.","price":65,"category":"gadgets","occasion":["corporate"],"recipient":["colleague","him","her"]},
-  {"id":4,"title":"Подарок для коллеги","desc":"Стильная термокружка и набор для заметок.","price":35,"category":"premium","occasion":["corporate"],"recipient":["colleague"]},
-  {"id":5,"title":"Набор хобби — арт","desc":"Акварельный набор авторского качества.","price":48,"category":"hobby","occasion":["birthday"],"recipient":["her","him"]},
-  {"id":6,"title":"Детский развивающий набор","desc":"Креативные пазлы и книга-игра.","price":29,"category":"for-kids","occasion":["birthday"],"recipient":["kid"]},
-  {"id":7,"title":"Премиальный аксессуар","desc":"Минималистичный кошелёк из натуральной кожи.","price":220,"category":"for-men","occasion":["anniversary"],"recipient":["him"]},
-  {"id":8,"title":"Гаджет-органайзер","desc":"Элегантный органайзер для кабелей и аксессуаров.","price":40,"category":"gadgets","occasion":["any"],"recipient":["him","her","colleague"]},
-  {"id":9,"title":"Набор для дома — ароматы","desc":"Авторские ароматы и диффузор.","price":150,"category":"home","occasion":["wedding","anniversary"],"recipient":["couple","her","him"]},
-  {"id":10,"title":"Подарок для женщин — уход","desc":"Натуральный уходовый набор.","price":95,"category":"for-women","occasion":["birthday","romantic"],"recipient":["her"]},
-  {"id":11,"title":"Подарочный набор путешественника","desc":"Дорожный набор премиум-класса.","price":180,"category":"premium","occasion":["birthday","wedding"],"recipient":["him","her"]},
-  {"id":12,"title":"Креативный гаджет для дома","desc":"Умная лампа с управлением через приложение.","price":75,"category":"gadgets","occasion":["any"],"recipient":["any"]}
+    {
+        "id": 1,
+        "title": "Умная кофемашина с Wi-Fi",
+        "desc": "Автоматическое приготовление кофе с управлением через приложение",
+        "price": 299,
+        "category": "tech",
+        "occasion": ["newyear", "birthday", "corporate"],
+        "recipient": ["him", "her", "colleague"]
+    },
+    {
+        "id": 2,
+        "title": "Беспроводная акустика премиум",
+        "desc": "360° звук с технологией шумоподавления",
+        "price": 199,
+        "category": "tech",
+        "occasion": ["newyear", "birthday"],
+        "recipient": ["him", "her", "family"]
+    },
+    {
+        "id": 3,
+        "title": "Набор умного дома",
+        "desc": "Умные лампы, розетки и датчики для автоматизации",
+        "price": 159,
+        "category": "tech",
+        "occasion": ["newyear", "birthday"],
+        "recipient": ["him", "her", "family"]
+    },
+    {
+        "id": 4,
+        "title": "Электронная книга премиум",
+        "desc": "Безбликовый экран с подсветкой и защитой от воды",
+        "price": 129,
+        "category": "tech",
+        "occasion": ["newyear", "birthday"],
+        "recipient": ["him", "her"]
+    },
+    {
+        "id": 5,
+        "title": "Новогодний гастрономический набор",
+        "desc": "Изысканные деликатесы и напитки для праздничного стола",
+        "price": 149,
+        "category": "newyear-set",
+        "occasion": ["newyear", "corporate"],
+        "recipient": ["family", "couple", "colleague"]
+    },
+    {
+        "id": 6,
+        "title": "Подарочный сертификат SPA",
+        "desc": "Премиальные процедуры и релаксация",
+        "price": 120,
+        "category": "lifestyle",
+        "occasion": ["newyear", "birthday", "romantic"],
+        "recipient": ["her", "couple"]
+    },
+    {
+        "id": 7,
+        "title": "Набор элитного чая и аксессуаров",
+        "desc": "Редкие сорта чая в подарочной упаковке",
+        "price": 89,
+        "category": "lifestyle",
+        "occasion": ["newyear", "birthday", "corporate"],
+        "recipient": ["him", "her", "colleague"]
+    },
+    {
+        "id": 8,
+        "title": "Умные часы для фитнеса",
+        "desc": "Мониторинг здоровья и уведомления",
+        "price": 179,
+        "category": "tech",
+        "occasion": ["newyear", "birthday"],
+        "recipient": ["him", "her"]
+    },
+    {
+        "id": 9,
+        "title": "Набор ароматических свечей",
+        "desc": "Эксклюзивные ароматы для создания атмосферы",
+        "price": 65,
+        "category": "home",
+        "occasion": ["newyear", "romantic"],
+        "recipient": ["her", "couple", "family"]
+    },
+    {
+        "id": 10,
+        "title": "Беспроводное зарядное устройство",
+        "desc": "Быстрая зарядка для всех устройств",
+        "price": 79,
+        "category": "tech",
+        "occasion": ["newyear", "corporate"],
+        "recipient": ["him", "her", "colleague"]
+    },
+    {
+        "id": 11,
+        "title": "Набор для создания коктейлей",
+        "desc": "Премиальные ингредиенты и аксессуары",
+        "price": 110,
+        "category": "lifestyle",
+        "occasion": ["newyear", "birthday"],
+        "recipient": ["him", "her", "couple"]
+    },
+    {
+        "id": 12,
+        "title": "Умный термос с подогревом",
+        "desc": "Поддержание температуры через приложение",
+        "price": 95,
+        "category": "tech",
+        "occasion": ["newyear", "corporate"],
+        "recipient": ["him", "her", "colleague"]
+    }
 ];
 
-function formatPrice(p){ return p>=100? '€'+p : '€'+p; }
-
-// Генерация абстрактных геометрических форм для плейсхолдеров
-function generatePlaceholderSVG(title) {
-  const shapes = [
-    `<rect x="20" y="20" width="160" height="80" fill="none" stroke="rgba(212,175,55,0.3)" stroke-width="1"/>`,
-    `<circle cx="100" cy="60" r="40" fill="none" stroke="rgba(212,175,55,0.3)" stroke-width="1"/>`,
-    `<polygon points="100,20 180,80 20,80" fill="none" stroke="rgba(212,175,55,0.3)" stroke-width="1"/>`,
-    `<rect x="40" y="30" width="120" height="60" fill="none" stroke="rgba(212,175,55,0.3)" stroke-width="1" transform="rotate(45 100 60)"/>`
-  ];
-  
-  const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
-  
-  return `
-    <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg" role="img">
-      <rect width="200" height="120" fill="rgba(10,10,10,0.5)"/>
-      ${randomShape}
-      <text x="100" y="65" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="14" fill="rgba(212,175,55,0.7)">${title.split(' ')[0]}</text>
-    </svg>
-  `;
+// Форматирование цены
+function formatPrice(price) {
+    return '€' + price;
 }
 
-function createCard(p){
-  const el = document.createElement('article');
-  el.className = 'product fade-in';
-  el.innerHTML = `
-    <div class="img" aria-hidden="true">
-      ${generatePlaceholderSVG(p.title)}
-    </div>
-    <h3>${p.title}</h3>
-    <p>${p.desc}</p>
-    <div class="actions">
-      <div class="price">${formatPrice(p.price)}</div>
-      <div>
-        <button class="btn" onclick="alert('Добавлено в корзину: ${p.title.replace(/'/g,'\'')}')">Добавить</button>
-        <button class="link-ghost" onclick="showDetails(${p.id})">Подробнее</button>
-      </div>
-    </div>
-  `;
-  return el;
+// Создание снежинок
+function createSnowflakes() {
+    const snowContainer = document.getElementById('snow-container');
+    const snowflakes = ['❄', '✨', '⭐', '💫'];
+    
+    for (let i = 0; i < 50; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.className = 'snowflake';
+        snowflake.textContent = snowflakes[Math.floor(Math.random() * snowflakes.length)];
+        snowflake.style.left = Math.random() * 100 + 'vw';
+        snowflake.style.animationDuration = (Math.random() * 5 + 5) + 's';
+        snowflake.style.animationDelay = Math.random() * 5 + 's';
+        snowflake.style.opacity = Math.random() * 0.7 + 0.3;
+        snowContainer.appendChild(snowflake);
+    }
 }
 
-function renderGrid(list, containerId){
-  const container = document.getElementById(containerId);
-  container.innerHTML = '';
-  if(!list.length){ 
-    container.innerHTML = '<p class="muted" style="text-align:center;grid-column:1/-1;padding:40px;">Ничего не найдено по заданным фильтрам.</p>'; 
-    return; 
-  }
-  list.forEach(p => container.appendChild(createCard(p)));
-  // Активируем анимации появления
-  setTimeout(() => {
-    document.querySelectorAll('.fade-in').forEach(el => {
-      el.classList.add('visible');
+// Создание карточки товара
+function createProductCard(product) {
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    card.innerHTML = `
+        <div class="product-image">
+            <div style="font-size: 48px; opacity: 0.7;">🎁</div>
+        </div>
+        <div class="product-content">
+            <h3 class="product-title">${product.title}</h3>
+            <p class="product-description">${product.desc}</p>
+            <div class="product-footer">
+                <div class="product-price">${formatPrice(product.price)}</div>
+                <div class="product-actions">
+                    <button class="btn-sm secondary" onclick="showProductDetails(${product.id})">Подробнее</button>
+                    <button class="btn-sm primary" onclick="addToCart(${product.id})">В корзину</button>
+                </div>
+            </div>
+        </div>
+    `;
+    return card;
+}
+
+// Показать детали товара
+function showProductDetails(productId) {
+    const product = PRODUCTS.find(p => p.id === productId);
+    if (product) {
+        alert(`${product.title}\n\n${product.desc}\n\nЦена: ${formatPrice(product.price)}`);
+    }
+}
+
+// Добавить в корзину
+function addToCart(productId) {
+    const product = PRODUCTS.find(p => p.id === productId);
+    if (product) {
+        // Создаем праздничное уведомление
+        const notification = document.createElement('div');
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 16px 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow-lg);
+            z-index: 1000;
+            animation: slideIn 0.3s ease;
+        `;
+        notification.innerHTML = `
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <span style="font-size: 20px;">🎉</span>
+                <span>Добавлено: ${product.title}</span>
+            </div>
+        `;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+            notification.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 3000);
+        
+        // Добавляем CSS для анимаций
+        if (!document.querySelector('#notification-styles')) {
+            const style = document.createElement('style');
+            style.id = 'notification-styles';
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                @keyframes slideOut {
+                    from { transform: translateX(0); opacity: 1; }
+                    to { transform: translateX(100%); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+    }
+}
+
+// Рендер сетки товаров
+function renderProducts(products, containerId) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = '';
+    
+    if (products.length === 0) {
+        container.innerHTML = `
+            <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px;">
+                <div style="font-size: 48px; margin-bottom: 16px;">🎁</div>
+                <h3 style="margin-bottom: 8px; color: var(--text-primary);">Ничего не найдено</h3>
+                <p style="color: var(--text-secondary);">Попробуйте изменить параметры фильтра</p>
+            </div>
+        `;
+        return;
+    }
+    
+    products.forEach(product => {
+        container.appendChild(createProductCard(product));
     });
-  }, 100);
 }
 
-function applyFilters(){
-  const occ = document.getElementById('occasion').value;
-  const rec = document.getElementById('recipient').value;
-  const price = document.getElementById('priceRange').value;
-  const cat = document.getElementById('category').value;
-
-  let result = PRODUCTS.slice();
-
-  if(cat !== 'any') result = result.filter(r => r.category === cat);
-  if(occ !== 'any') result = result.filter(r => r.occasion.includes(occ) || r.occasion.includes('any'));
-  if(rec !== 'any') result = result.filter(r => r.recipient.includes(rec) || r.recipient.includes('any'));
-  if(price !== 'any'){
-    if(price === '300+') result = result.filter(r => r.price >= 300);
-    else {
-      const [min,max] = price.split('-').map(Number);
-      result = result.filter(r => r.price >= min && r.price <= (max===0?9999:max));
-    }
-  }
-  // render into showcase (top picks) and full catalog
-  renderGrid(result.slice(0,4), 'showcase');
-  renderGrid(result, 'catalogGrid');
-  // smooth scroll to results
-  document.getElementById('catalog').scrollIntoView({behavior:'smooth'});
+// Применение фильтров
+function applyFilters() {
+    const occasion = document.getElementById('occasion').value;
+    const recipient = document.getElementById('recipient').value;
+    const priceRange = document.getElementById('priceRange').value;
+    const category = document.getElementById('category').value;
+    
+    let filteredProducts = PRODUCTS.filter(product => {
+        // Фильтр по поводу
+        if (occasion !== 'any' && !product.occasion.includes(occasion)) {
+            return false;
+        }
+        
+        // Фильтр по получателю
+        if (recipient !== 'any' && !product.recipient.includes(recipient)) {
+            return false;
+        }
+        
+        // Фильтр по категории
+        if (category !== 'any' && product.category !== category) {
+            return false;
+        }
+        
+        // Фильтр по цене
+        if (priceRange !== 'any') {
+            if (priceRange === '300+') {
+                if (product.price < 300) return false;
+            } else {
+                const [min, max] = priceRange.split('-').map(Number);
+                if (product.price < min || product.price > max) return false;
+            }
+        }
+        
+        return true;
+    });
+    
+    renderProducts(filteredProducts, 'catalogGrid');
+    
+    // Плавная прокрутка к результатам
+    document.getElementById('catalog').scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+    });
 }
 
-function resetFilters(){
-  document.getElementById('filterForm').reset();
-  renderGrid(PRODUCTS.slice(0,8), 'catalogGrid');
-  renderGrid(PRODUCTS.slice(0,3), 'showcase');
+// Сброс фильтров
+function resetFilters() {
+    document.getElementById('occasion').value = 'any';
+    document.getElementById('recipient').value = 'any';
+    document.getElementById('priceRange').value = 'any';
+    document.getElementById('category').value = 'any';
+    
+    renderProducts(PRODUCTS, 'catalogGrid');
 }
 
-function showDetails(id){
-  const p = PRODUCTS.find(x=>x.id===id);
-  alert(p.title + "\n\n" + p.desc + "\nЦена: " + formatPrice(p.price));
-}
-
-// Анимация появления элементов при скролле
-function checkVisibility() {
-  const elements = document.querySelectorAll('.fade-in');
-  elements.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      el.classList.add('visible');
-    }
-  });
-}
-
-document.getElementById('apply').addEventListener('click', applyFilters);
-document.getElementById('reset').addEventListener('click', resetFilters);
-
-window.addEventListener('load', ()=>{ 
-  resetFilters(); 
-  // Запускаем проверку видимости после загрузки
-  setTimeout(checkVisibility, 500);
+// Инициализация при загрузке
+document.addEventListener('DOMContentLoaded', function() {
+    // Создаем снежинки
+    createSnowflakes();
+    
+    // Рендерим все товары при загрузке
+    renderProducts(PRODUCTS, 'catalogGrid');
+    
+    // Назначаем обработчики событий
+    document.getElementById('apply').addEventListener('click', applyFilters);
+    document.getElementById('reset').addEventListener('click', resetFilters);
+    
+    // Добавляем новогоднее приветствие
+    setTimeout(() => {
+        console.log('%c 🎄 С Новым Годом! 🎁', 'font-size: 24px; color: #1428A0; font-weight: bold;');
+        console.log('%c Пусть 2024 год принесет много радости и прекрасных подарков!', 'font-size: 16px; color: #00A3FF;');
+    }, 1000);
 });
 
-window.addEventListener('scroll', checkVisibility);
+// Добавляем эффект параллакса для снежинок при скролле
+window.addEventListener('scroll', function() {
+    const snowflakes = document.querySelectorAll('.snowflake');
+    const scrolled = window.pageYOffset;
+    
+    snowflakes.forEach((snowflake, index) => {
+        const speed = (index % 3 + 1) * 0.5;
+        snowflake.style.transform = `translateY(${scrolled * speed}px)`;
+    });
+});
