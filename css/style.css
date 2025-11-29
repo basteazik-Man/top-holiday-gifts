@@ -42,7 +42,7 @@ p, .nav-link, .btn, input, textarea {
 }
 
 .brand { 
-    font-size: 24px; 
+    font-size: 20px; 
     font-weight: 700; 
     color: #fff; 
     text-transform: uppercase; 
@@ -168,13 +168,35 @@ p, .nav-link, .btn, input, textarea {
     color: #fff; 
     text-decoration: none; 
 }
-.socials-hero img { 
-    width: 32px; 
-    height: 32px; 
-    transition: transform 0.3s; 
+
+/* Социальные иконки */
+.socials-hero {
+    display: flex;
+    gap: 15px;
 }
-.socials-hero img:hover { 
-    transform: scale(1.1); 
+.social-link img {
+    transition: transform 0.3s ease;
+}
+.social-link:hover img {
+    transform: scale(1.1);
+}
+
+/* Кнопки социальных сетей */
+.btn-social {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+.btn-social:hover {
+    background: #0a2342;
+    transform: translateY(-2px);
 }
 
 /* --- СЕКЦИИ --- */
@@ -242,6 +264,13 @@ p, .nav-link, .btn, input, textarea {
     font-weight: bold; 
 }
 
+.footer-social a img {
+    transition: transform 0.3s ease;
+}
+.footer-social a:hover img {
+    transform: scale(1.1);
+}
+
 /* Адаптив */
 @media(max-width: 900px){
     .cards { grid-template-columns: 1fr; }
@@ -256,6 +285,9 @@ p, .nav-link, .btn, input, textarea {
     }
     .contact-block {
         justify-content: center;
+    }
+    .brand {
+        font-size: 16px;
     }
 }
 
@@ -272,5 +304,9 @@ p, .nav-link, .btn, input, textarea {
     .footer-inner {
         flex-direction: column;
         text-align: center;
+    }
+    .contact-block {
+        flex-direction: column;
+        gap: 15px;
     }
 }
