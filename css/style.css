@@ -5,6 +5,8 @@
     --primary: #0C2B4B; /* Тёмный Сапфир — доверие */
     --accent: #B58E4A;  /* Золото — премиальность */
     --light-gray: #F8F9FA;
+    --whatsapp: #25D366;
+    --telegram: #0088cc;
 }
 
 * { box-sizing: border-box; }
@@ -174,11 +176,20 @@ p, .nav-link, .btn, input, textarea {
     display: flex;
     gap: 15px;
 }
-.social-link img {
-    transition: transform 0.3s ease;
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    color: #fff;
 }
-.social-link:hover img {
-    transform: scale(1.1);
+.social-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
 }
 
 /* Кнопки социальных сетей */
@@ -186,17 +197,24 @@ p, .nav-link, .btn, input, textarea {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 10px 15px;
+    padding: 12px 20px;
     background: var(--primary);
     color: white;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 6px;
     transition: all 0.3s ease;
     font-size: 14px;
+    font-weight: 500;
+}
+.btn-social.whatsapp:hover {
+    background: var(--whatsapp);
+}
+.btn-social.telegram:hover {
+    background: var(--telegram);
 }
 .btn-social:hover {
-    background: #0a2342;
     transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 /* --- СЕКЦИИ --- */
@@ -264,11 +282,20 @@ p, .nav-link, .btn, input, textarea {
     font-weight: bold; 
 }
 
-.footer-social a img {
-    transition: transform 0.3s ease;
+.footer-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    color: #fff;
 }
-.footer-social a:hover img {
-    transform: scale(1.1);
+.footer-social a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
 }
 
 /* Адаптив */
@@ -308,5 +335,9 @@ p, .nav-link, .btn, input, textarea {
     .contact-block {
         flex-direction: column;
         gap: 15px;
+    }
+    .social-links .btn-social {
+        width: 100%;
+        justify-content: center;
     }
 }
