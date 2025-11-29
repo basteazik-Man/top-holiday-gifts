@@ -1,35 +1,276 @@
+/* css/style.css — ПРЕМИУМ ДИЗАЙН ДЛЯ ЮРИДИЧЕСКОЙ КОМПАНИИ */
+:root {
+    --bg: #FFFFFF;
+    --text: #333333;
+    --primary: #0C2B4B; /* Тёмный Сапфир — доверие */
+    --accent: #B58E4A;  /* Золото — премиальность */
+    --light-gray: #F8F9FA;
+}
 
-body { margin:0; font-family:Arial; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+html, body { height: 100%; margin: 0; }
+
+body {
+    font-family: "Georgia", "Times New Roman", serif;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+}
+
+/* Шрифты без засечек для мелкого текста */
+p, .nav-link, .btn, input, textarea {
+    font-family: "Arial", sans-serif;
+}
+
+.container { width: 1200px; max-width: 94%; margin: 0 auto; }
+
+/* --- ШАПКА --- */
+.site-header {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    z-index: 1000;
+    background: rgba(12, 43, 75, 0.95);
+    border-bottom: 2px solid var(--accent);
+    backdrop-filter: blur(5px);
+}
+
+.header-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 15px 0;
+}
+
+.brand { 
+    font-size: 24px; 
+    font-weight: 700; 
+    color: #fff; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+}
+
+.nav { display: flex; gap: 30px; }
+.nav-link { 
+    color: rgba(255,255,255,0.9); 
+    text-decoration: none; 
+    font-size: 14px; 
+    text-transform: uppercase; 
+    transition: 0.3s; 
+    font-weight: 500;
+}
+.nav-link:hover { color: var(--accent); }
+
+.phone-header {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+/* --- HERO (Главный экран) --- */
 .hero {
-  position:relative;
-  height:100vh;
-  background:url('../images/lawyer_bg.jpg') center/cover no-repeat;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-color: var(--primary);
 }
-.overlay {
-  position:absolute; top:0; left:0;
-  width:100%; height:100%;
-  background:rgba(0,0,0,0.6);
+
+/* Блок для картинки с параллаксом */
+.hero-media {
+    position: absolute;
+    top: -5%; left: -5%; 
+    width: 110%; height: 110%;
+    background-image: url('../images/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    transition: transform 0.1s ease-out;
 }
-.content {
-  position:relative;
-  z-index:2;
-  color:white;
-  top:40%; left:50%;
-  transform:translate(-50%,-40%);
-  text-align:center;
-  max-width:600px;
+
+/* Затемнение */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(12, 43, 75, 0.95) 0%, rgba(12, 43, 75, 0.7) 100%);
+    z-index: 2;
 }
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    color: #fff;
+    max-width: 700px;
+    padding-top: 80px;
+}
+
+.title {
+    font-size: 48px;
+    margin: 0 0 20px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.subtitle {
+    font-size: 18px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 30px;
+    border-left: 3px solid var(--accent);
+    padding-left: 15px;
+}
+
+/* Кнопки */
+.cta-row { display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
 .btn {
-  display:inline-block;
-  margin-top:20px;
-  padding:12px 24px;
-  background:#0066ff;
-  color:white;
-  text-decoration:none;
-  border-radius:6px;
+    display: inline-block; 
+    padding: 14px 28px;
+    border-radius: 4px; 
+    text-decoration: none;
+    font-weight: 700; 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+    font-size: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
 }
-.services, .contact { padding:60px 20px; max-width:800px; margin:auto; }
-.services h2, .contact h2 { text-align:center; margin-bottom:30px; }
-.contact form { display:flex; flex-direction:column; gap:15px; max-width:400px; margin:auto; }
-.contact input, .contact button { padding:12px; font-size:16px; }
-.contact button { background:#0066ff; color:white; border:none; border-radius:6px; }
+.btn-primary { 
+    background: var(--accent); 
+    color: #fff; 
+    border: 1px solid var(--accent); 
+}
+.btn-primary:hover { 
+    background: #8e6f36; 
+    transform: translateY(-2px);
+}
+
+.btn-ghost { 
+    background: transparent; 
+    border: 1px solid rgba(255,255,255,0.3); 
+    color: #fff; 
+}
+.btn-ghost:hover { 
+    border-color: #fff; 
+    transform: translateY(-2px);
+}
+
+/* Контакты на главном экране */
+.contact-block {
+    display: flex; 
+    align-items: center; 
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.phone-big { 
+    font-size: 24px; 
+    font-weight: bold; 
+    color: #fff; 
+    text-decoration: none; 
+}
+.socials-hero img { 
+    width: 32px; 
+    height: 32px; 
+    transition: transform 0.3s; 
+}
+.socials-hero img:hover { 
+    transform: scale(1.1); 
+}
+
+/* --- СЕКЦИИ --- */
+.section {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-size: 32px; 
+    color: var(--primary);
+    text-align: center; 
+    margin: 0 0 40px;
+    position: relative;
+}
+.section-title::after {
+    content: ""; 
+    display: block; 
+    width: 60px; 
+    height: 3px;
+    background: var(--accent); 
+    margin: 15px auto 0;
+}
+
+.cards { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    gap: 30px; 
+}
+.card {
+    background: #fff; 
+    padding: 30px;
+    border-top: 4px solid var(--primary);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: 0.3s;
+    border-radius: 4px;
+}
+.card:hover { 
+    transform: translateY(-5px); 
+    border-color: var(--accent); 
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+.card h3 { 
+    color: var(--primary); 
+    margin-top: 0; 
+    font-size: 20px;
+}
+
+/* --- FOOTER --- */
+.site-footer { 
+    background: var(--primary); 
+    color: #fff; 
+    padding: 40px 0; 
+}
+.footer-inner { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.footer-contacts a { 
+    color: var(--accent); 
+    text-decoration: none; 
+    font-size: 20px; 
+    font-weight: bold; 
+}
+
+/* Адаптив */
+@media(max-width: 900px){
+    .cards { grid-template-columns: 1fr; }
+    .title { font-size: 32px; }
+    .nav { display: none; }
+    .hero-content {
+        text-align: center;
+    }
+    .subtitle {
+        border-left: none;
+        padding-left: 0;
+    }
+    .contact-block {
+        justify-content: center;
+    }
+}
+
+@media(max-width: 600px){
+    .title { font-size: 28px; }
+    .cta-row {
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+    .footer-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+}

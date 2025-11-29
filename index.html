@@ -1,38 +1,152 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<title>Юридическая помощь — Банкротство</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Юридическая помощь | Банкротство физических лиц</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="hero">
-  <div class="overlay"></div>
-  <div class="content">
-    <h1>Юридическая помощь при банкротстве</h1>
-    <p>Профессиональная поддержка, защита интересов и сопровождение процедуры банкротства физических лиц.</p>
-    <a href="#contact" class="btn">Получить консультацию</a>
-  </div>
-</div>
+    <!-- Шапка -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-inner">
+                <div class="brand">ЮрПомощь</div>
+                <nav class="nav">
+                    <a href="#services" class="nav-link">Услуги</a>
+                    <a href="#about" class="nav-link">О компании</a>
+                    <a href="#reviews" class="nav-link">Отзывы</a>
+                    <a href="#contact" class="nav-link">Контакты</a>
+                </nav>
+                <a href="tel:+74951234567" class="phone-header">+7 (495) 123-45-67</a>
+            </div>
+        </div>
+    </header>
 
-<section class="services">
-  <h2>Наши услуги</h2>
-  <ul>
-    <li>Полное сопровождение процедуры банкротства</li>
-    <li>Подготовка и подача всех необходимых документов</li>
-    <li>Защита ваших прав в суде</li>
-  </ul>
-</section>
+    <!-- Главный экран -->
+    <section class="hero">
+        <div class="hero-media" id="heroMedia"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="title">Профессиональная защита ваших прав при банкротстве</h1>
+                <p class="subtitle">Полное сопровождение процедуры банкротства физических лиц. Вернем финансовую свободу законным способом.</p>
+                <div class="cta-row">
+                    <a href="#contact" class="btn btn-primary">Бесплатная консультация</a>
+                    <a href="#services" class="btn btn-ghost">Наши услуги</a>
+                </div>
+                <div class="contact-block">
+                    <a href="tel:+74951234567" class="phone-big">+7 (495) 123-45-67</a>
+                    <div class="socials-hero">
+                        <!-- Здесь можно добавить иконки соцсетей -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="contact" class="contact">
-  <h2>Связаться с нами</h2>
-  <p>Оставьте заявку, и юрист свяжется с вами.</p>
-  <form>
-    <input type="text" placeholder="Ваше имя" required>
-    <input type="tel" placeholder="Телефон" required>
-    <button type="submit">Отправить</button>
-  </form>
-</section>
+    <!-- Услуги -->
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title">Наши услуги</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Банкротство физических лиц</h3>
+                    <p>Полное сопровождение процедуры банкротства от консультации до списания долгов</p>
+                </div>
+                <div class="card">
+                    <h3>Защита от коллекторов</h3>
+                    <p>Законные методы прекращения звонков и давления со стороны коллекторских агентств</p>
+                </div>
+                <div class="card">
+                    <h3>Реструктуризация долгов</h3>
+                    <p>Разработка индивидуального плана реструктуризации и переговоры с кредиторами</p>
+                </div>
+                <div class="card">
+                    <h3>Суды с банками</h3>
+                    <p>Представительство в судах по спорам с банками и микрофинансовыми организациями</p>
+                </div>
+                <div class="card">
+                    <h3>Юридические консультации</h3>
+                    <p>Подробный анализ вашей ситуации и разработка оптимальной стратегии</p>
+                </div>
+                <div class="card">
+                    <h3>Исполнительное производство</h3>
+                    <p>Защита от неправомерных действий судебных приставов-исполнителей</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О компании -->
+    <section id="about" class="section" style="background: var(--light-gray); padding: 80px 0;">
+        <div class="container">
+            <h2 class="section-title">О компании</h2>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 18px; line-height: 1.8; margin-bottom: 30px;">
+                    Более 10 лет мы специализируемся на помощи гражданам в сложных финансовых ситуациях. 
+                    Наша команда профессиональных юристов имеет успешный опыт ведения дел о банкротстве 
+                    и защите прав должников.
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px;">
+                    <div>
+                        <h3 style="color: var(--primary); font-size: 48px; margin: 0;">500+</h3>
+                        <p>Успешных дел</p>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--primary); font-size: 48px; margin: 0;">10+</h3>
+                        <p>Лет опыта</p>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--primary); font-size: 48px; margin: 0;">95%</h3>
+                        <p>Выигранных дел</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; max-width: 900px; margin: 0 auto;">
+                <div>
+                    <h3 style="color: var(--primary); margin-bottom: 20px;">Наши контакты</h3>
+                    <p><strong>Адрес:</strong> г. Москва, ул. Правды, д. 1</p>
+                    <p><strong>Телефон:</strong> <a href="tel:+74951234567" style="color: var(--primary);">+7 (495) 123-45-67</a></p>
+                    <p><strong>Email:</strong> info@urpomosh.ru</p>
+                    <p><strong>Время работы:</strong> Пн-Пт: 9:00-18:00</p>
+                </div>
+                <div>
+                    <h3 style="color: var(--primary); margin-bottom: 20px;">Записаться на консультацию</h3>
+                    <form style="display: flex; flex-direction: column; gap: 15px;">
+                        <input type="text" placeholder="Ваше имя" style="padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                        <input type="tel" placeholder="Телефон" style="padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                        <textarea placeholder="Ваш вопрос" rows="4" style="padding: 12px; border: 1px solid #ddd; border-radius: 4px;"></textarea>
+                        <button type="submit" class="btn btn-primary" style="align-self: flex-start;">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <div style="font-size: 24px; font-weight: bold; margin-bottom: 10px;">ЮрПомощь</div>
+                    <div>Профессиональная юридическая помощь</div>
+                </div>
+                <div class="footer-contacts">
+                    <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+                    <div style="margin-top: 10px;">© 2024 Все права защищены</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
